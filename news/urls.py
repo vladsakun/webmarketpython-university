@@ -1,18 +1,3 @@
-"""mysite URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.8/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Add an import:  from blog import urls as blog_urls
-    2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
-"""
 from django.urls import path, re_path
 from django.views.generic import ListView, DetailView
 from news.models import Products
@@ -20,6 +5,25 @@ from news import views
 
 app_name = 'news'
 
+"""
+Конфігурація URL для додатку "news".
+
+`urlpatterns` містить список шляхів до відображень. Для отримання додаткової інформації дивіться:
+    https://docs.djangoproject.com/en/1.8/topics/http/urls/
+
+Приклади:
+Функційні відображення
+    1. Додайте імпорт: from my_app import views
+    2. Додайте URL до urlpatterns: url(r'^$', views.home, name='home')
+
+Відображення на основі класів
+    1. Додайте імпорт: from other_app.views import Home
+    2. Додайте URL до urlpatterns: url(r'^$', Home.as_view(), name='home')
+
+Включення іншого URLconf
+    1. Додайте імпорт: from blog import urls as blog_urls
+    2. Додайте URL до urlpatterns: url(r'^blog/', include(blog_urls))
+"""
 urlpatterns = [
     path('', views.index, name='index'),
     path('TShirts', views.productFilter, name='tshirt-filter'),

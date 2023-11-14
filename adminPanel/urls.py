@@ -12,3 +12,6 @@ urlpatterns = [
     re_path(r'^comment/submit/(?P<commentId>\w+)$', views.commentSubmitAdmin),
     re_path(r'^product/edit/(?P<productId>\w+)/(?P<title>\w+)/(?P<price>\w+)/(?P<status>\w+)/(?P<post>\w+)/(?P<gender>\w+)$', views.editProduct),
 ]
+"""
+Файл містить шляхи до відповідних функцій для кожного URL-адреси, що використовується в адмін-панелі.
+"""

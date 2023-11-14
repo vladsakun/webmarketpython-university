@@ -14,14 +14,26 @@ from django.core.paginator import Paginator
 from django.views.generic import DetailView
 from .forms import PostForm
 
+"""
+Функція для створення нового продукту.
 
+При GET-запиті повертає форму для створення продукту.
+При POST-запиті перевіряє форму на валідність та зберігає новий продукт у базу даних.
+Після успішного збереження перенаправляє користувача на сторінку з детальною інформацією про продукт.
+
+Parameters:
+request (HttpRequest): Об'єкт запиту.
+
+Returns:
+HttpResponse: Відповідь на запит.
+"""
 def productCreate(request):
     q = Products.objects.values_list('type', flat=True).distinct()
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        messages.success(request, "Успешно создано!")
+        messages.success(request, "Успішно створено!")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form":form,
@@ -31,7 +43,18 @@ def productCreate(request):
     return render(request, "news/post_form.html", context)
 
 
+# Функція для видалення кукі з запиту
 def deleteCookie(request, cookie):
+    """
+    Видаляє кукі з запиту та оновлює інші кукі.
+
+    Аргументи:
+    - request: запит, який містить кукі
+    - cookie: індекс кукі, яке потрібно видалити
+
+    Повертає:
+    - response: відповідь з оновленими кукі
+    """
     one_week_age = 24 * 60 * 60
     response = HttpResponse()
     amountOfOrders = request.COOKIES.get('amountOfOrders')
@@ -43,8 +66,18 @@ def deleteCookie(request, cookie):
     return response
 
 
-# Добавлние комментария в БД
 def addComment(request, productId, userName, commentText, merits="pass", limitations="pass"):
+    """
+    Додає коментар до продукту з вказаним ідентифікатором.
+
+    :param request: запит
+    :param productId: ідентифікатор продукту
+    :param userName: ім'я користувача
+    :param commentText: текст коментаря
+    :param merits: переваги продукту (за замовчуванням "pass")
+    :param limitations: недоліки продукту (за замовчуванням "pass")
+    :return: відповідь сервера
+    """
     current_status = "no"
     current_category = Products.objects.values_list('type', flat=True).get(pk=productId)
     commentText = commentText.replace('_', ' ')
@@ -63,8 +96,14 @@ def addComment(request, productId, userName, commentText, merits="pass", limitat
     return response
 
 
-# Вывод комментриев из БД
 def showComments(request, productId):
+    """
+    Функція, яка відображає коментарі для певного продукту.
+
+    :param request: запит користувача
+    :param productId: ідентифікатор продукту
+    :return: відображення сторінки з коментарями
+    """
     current_product_id = productId
     comments_list = Comments.objects.filter(product_id=current_product_id).order_by('-date')
     comment_paginator = Paginator(comments_list, 5)

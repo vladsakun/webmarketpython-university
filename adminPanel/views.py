@@ -7,14 +7,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 
 
-# Create your views here.
 def index(request):
+    """
+    Функція, що відображає головну сторінку адміністративної панелі.
+    """
     q = Products.objects.values_list('type', flat=True).distinct()
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        messages.success(request, "Успешно создано!")
+        messages.success(request, "Успішно створено!")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
@@ -25,6 +27,12 @@ def index(request):
 
 
 def editProducts(request, productType):
+    """
+    Функція, що відображає сторінку редагування продуктів з певним типом.
+
+    :param request: запит користувача
+    :param productType: тип продукту
+    """
     if not Products.objects.filter(title__contains='super').exists():
         search = "None"
     
@@ -37,6 +45,12 @@ def editProducts(request, productType):
 
 
 def search(request, name):
+    """
+    Функція, що відображає сторінку знайдених продуктів за назвою.
+
+    :param request: запит користувача
+    :param name: назва продукту
+    """
     if Products.objects.filter(title__icontains=name).exists():
         search = Products.objects.filter(title__icontains=name)
         return render(request, "adminPanel/editProducts.html", {"object_list": search})
@@ -45,17 +59,32 @@ def search(request, name):
     return render(request, "adminPanel/editProducts.html", {"error": search})
 
 
-
 def showEditProduct(request, productId):
-	product_info = Products.objects.get(id=productId)
-	return render(request, "adminPanel/productEdit.html", {"object_list": product_info})
+    """
+    Функція, що відображає сторінку редагування конкретного продукту.
+
+    :param request: запит користувача
+    :param productId: ідентифікатор продукту
+    """
+    product_info = Products.objects.get(id=productId)
+    return render(request, "adminPanel/productEdit.html", {"object_list": product_info})
 
 
 def commentsAdmin(request):
+    """
+    Функція, що відображає сторінку з коментарями, що очікують на підтвердження.
+    """
     comments_list = Comments.objects.filter(status="no")
     return render(request, "adminPanel/commentsAdmin.html", {"comments_list": comments_list})
 
+
 def commentSubmitAdmin(request, commentId):
+    """
+    Функція, що змінює статус коментаря на "підтверджено".
+
+    :param request: запит користувача
+    :param commentId: ідентифікатор коментаря
+    """
     comment = Comments.objects.get(id=commentId)
     comment.status = "yes"
     comment.save()
@@ -63,11 +92,28 @@ def commentSubmitAdmin(request, commentId):
 
 
 def commentDeleteAdmin(request, commentId):
+    """
+    Функція, що видаляє коментар.
+
+    :param request: запит користувача
+    :param commentId: ідентифікатор коментаря
+    """
     comment = Comments.objects.get(id=commentId).delete()
     return request
 
 
 def editProduct(request, productId, title, price, status, post, gender):
+    """
+    Функція, що змінює інформацію про продукт.
+
+    :param request: запит користувача
+    :param productId: ідентифікатор продукту
+    :param title: назва продукту
+    :param price: ціна продукту
+    :param status: статус продукту
+    :param post: опис продукту
+    :param gender: стать продукту
+    """
     product_info = Products.objects.get(id=productId)
     post = post.replace('_', ' ')
     status = status.replace('_', ' ')
