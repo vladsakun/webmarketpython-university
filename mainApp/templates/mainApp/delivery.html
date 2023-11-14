@@ -1,0 +1,30 @@
+{% extends "mainApp/wrapper.html" %}
+{% load static %}
+{% block content %}
+<!--{% for val in values %}-->
+<!--<p>{{val}}</p>-->
+<!--{% endfor %}-->
+<form role="form" method="post">
+
+    {% csrf_token %}
+    <div class="form-group">
+        <hr>
+        <label for="phone">Ваши данные</label>
+        <!--<div><h2>Имя</h2><input id="name" name="name" type="text" value="{{ current_name }}"/></div>
+        <div><h2>Фамилия</h2><input class="user-data" name="surname" type="text" value="{{ current_surname }}"/></div>
+        <div><h2>Адрес доставки</h2><input class="user-data" name="adress" type="text" value="{{ current_adress }}"/>
+        </div>-->
+        <div><h2>Номер телефона</h2><input id="phone" name="phone" type="text" value="{{ current_phone_number }}">
+        </div>
+        <br/>
+    </div>
+    <ul class="nav navbar-nav">
+        <li>        </li>
+    </ul>
+    <button name="btn" type="submit" value="Submit" class="btn btn-info btn-lg">Подтвердить данные</button>
+</form>
+<p>Доставка по городу Киев 100 гривен</p>
+<p>Доставка по всему миру 1000 гривен</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.091044581965!2d30.518298651398435!3d50.439404795940966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cefefa13b3c7%3A0x1b480634b89efc46!2sRohnidynska+St%2C+47%2C+Kyiv%2C+02000!5e0!3m2!1sen!2sua!4v1546784435804"
+        width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+{% endblock %}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        </meta>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+        <title>
+            Admin
+        </title>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <!-- Latest compiled and minified CSS -->
+        <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+            <!-- Optional theme -->
+        </link>
+        <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" rel="stylesheet">
+            <!-- Latest compiled and minified JavaScript -->
+        </link>
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+        {% load static %}
+        <link href="{% static 'mainApp/image/icon.ico' %}" rel="icon" type="image/x-icon"/>
+        <link href="{% static 'css/adminPanel.css' %}" rel="stylesheet" type="text/css"/>
+        <script src="{% static 'js/adminPanel.js' %}">
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="row">
+                <div class="logo col-sm-12 col-xs-12 col-lg-12 col-lg-12">
+                    <a href="/">
+                        <img border="0" height="84px" src="{% static 'mainApp/image/logo2.png' %}">
+                        </img>
+                    </a>
+                    [ADMIN]
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="left-admin-menu col-sm-3 col-lg-3 col-md-3">
+                        <ul class="list-group-flush" style="padding:0;">
+                            <li class="list-group-item menu-inline" id="add-product">
+                                <span class="admin-menu-text">
+                                    Добавить товар
+                                </span>
+                            </li>
+                            <li class="list-group-item menu-inline" id="comments">
+                                <span class="admin-menu-text">
+                                    Комментарии
+                                </span>
+                            </li>
+                            <li class="list-group-item menu-inline" id="categories" style="padding: 0;">
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                        Категории
+                                    </span>
+                                    <span class="caret">
+                                    </span>
+                                </button>
+                                <ul class="dropdown-menu" style="border: 0; padding: 0;">
+                                    {% for category in categories %}
+                                    <li class="category-item list-group-item" id="{{category}}" style="text-transform: uppercase;">
+                                        {{category}}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-lg-9 col-md-9 col-xs-12" id="right-admin-func">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <h1>
+            ADMIN here
+        </h1>
+        {% else %}
+        Log In on page below:
+        <a href="http://127.0.0.1:8000/accounts/login/">
+            Link
+        </a>
+        {% endif %}
+        <script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+    </body>
+</html>

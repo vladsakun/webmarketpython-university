@@ -1,0 +1,331 @@
+{% extends "mainApp/wrapper.html" %} {% block content %} {% load static %}
+<link href="{% static 'css/post.css' %}" rel="stylesheet" type="text/css" />
+<script defer src="{% static 'js/post.js' %}" type="text/javascript">
+</script>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 photo">
+        <div class="col-xs-12 col-sm-8 col-lg-8 col-md-8" id="main-product-photo-div">
+            <img id="main-product-photo" src="{{ products.image.url }}" />
+        </div>
+        <div class="col-xs-12 col-sm-3 col-lg-3 col-md-3 images">
+            <div background="{{products.image.url}}" class="image-secondary col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <img src="{{ products.image.url }}" />
+            </div>
+            <div background="{{products.image2.url}}" class="image-secondary col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <img src="{{ products.image2.url }}" />
+            </div>
+            <div background="{{products.image3.url}}" class="image-secondary col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <img src="{{ products.image3.url }}" />
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 product-description">
+        <div class="title">
+            {{products.title}}
+        </div>
+        <div class="price-title">
+            <div class="price">
+                {{products.price}}₴
+            </div>
+        </div>
+        <div class="description">
+            Доставка по Украине 100₴, по миру 1000₴
+        </div>
+        <hr/>
+        <div class="description">
+            {{products.post | truncatechars:200 | safe}}
+        </div>
+        <button class="size-table" data-target="#size-table-info" data-toggle="modal" type="button">
+            Размеры
+        </button>
+        <div class="modal fade bd-example-modal-lg" id="size-table-info" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="modal-title">
+                            Таблица размеров
+                        </span>
+                        <button class="close" data-dismiss="modal">
+                            X
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+
+                                    </th>
+                                    <th scope="col">
+                                        XS
+                                    </th>
+                                    <th scope="col">
+                                        S
+                                    </th>
+                                    <th scope="col">
+                                        M
+                                    </th>
+                                    <th scope="col">
+                                        L
+                                    </th>
+                                    <th scope="col">
+                                        XL
+                                    </th>
+                                    <th scope="col">
+                                        XXL
+                                    </th>
+                                    <th scope="col">
+                                        XXXL
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        обхват груди (см.)
+                                    </th>
+                                    <th scope="row">
+                                        76-84
+                                    </th>
+                                    <th scope="row">
+                                        84-92
+                                    </th>
+                                    <th scope="row">
+                                        92-100
+                                    </th>
+                                    <th scope="row">
+                                        100-108
+                                    </th>
+                                    <td>
+                                        108-116
+                                    </td>
+                                    <td>
+                                        116-124
+                                    </td>
+                                    <td>
+                                        124-140
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        обхват талии (см.)
+                                    </th>
+                                    <th scope="row">
+                                        56-64
+                                    </th>
+                                    <th scope="row">
+                                        64-72
+                                    </th>
+                                    <th scope="row">
+                                        72-80
+                                    </th>
+                                    <th scope="row">
+                                        80-88
+                                    </th>
+                                    <td>
+                                        88-96
+                                    </td>
+                                    <td>
+                                        96-104
+                                    </td>
+                                    <td>
+                                        104-112
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        обхват бедер (см.)
+                                    </th>
+                                    <th scope="row">
+                                        84-92
+                                    </th>
+                                    <th scope="row">
+                                        92-100
+                                    </th>
+                                    <th scope="row">
+                                        100-108
+                                    </th>
+                                    <th scope="row">
+                                        108-116
+                                    </th>
+                                    <td>
+                                        116-124
+                                    </td>
+                                    <td>
+                                        124-132
+                                    </td>
+                                    <td>
+                                        132-140
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        размеры стран СНГ
+                                    </th>
+                                    <th scope="row">
+                                        38-42
+                                    </th>
+                                    <th scope="row">
+                                        42-46
+                                    </th>
+                                    <th scope="row">
+                                        46-50
+                                    </th>
+                                    <th scope="row">
+                                        50-54
+                                    </th>
+                                    <td>
+                                        54-58
+                                    </td>
+                                    <td>
+                                        58-62
+                                    </td>
+                                    <td>
+                                        62-66
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-dismiss="modal">
+                            Закрыть
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="" style="width: 100%; height: 150px;">
+            <form method="post" role="form">
+                {% csrf_token %}
+                <div style="margin-top: 30px;
+                                margin-bottom: 10px;
+                                font-weight: bold">
+                    Размер:
+                </div>
+                <div data-toggle="buttons" id="size-labels">
+                    <label class="btn size">
+                        <input class="size" name="size" type="radio" value="S">
+                            S
+                        </input>
+                    </label>
+                    <label class="btn size active-size">
+                        <input checked="checked" class="size" name="size" type="radio" value="M">
+                            M
+                        </input>
+                    </label>
+                    <label class="btn size">
+                        <input class="size" name="size" type="radio" value="L">
+                            L
+                        </input>
+                    </label>
+                    <label class="btn size">
+                        <input class="size" name="size" type="radio" value="XL">
+                            XL
+                        </input>
+                    </label>
+                    <label class="btn size">
+                        <input class="size" name="size" type="radio" value="XXL">
+                            XXL
+                        </input>
+                    </label>
+                    <label class="btn size">
+                        <input class="size" name="size" type="radio" value="XXXL">
+                            XXXL
+                        </input>
+                    </label>
+                </div>
+                <div class="wrapper">
+                    <button class="button" id="add-to-basket" name="add-to-basket" type="submit" value="add-to-basket">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div id="comment-header-group">
+            <div style="float:left; font-weight: bold">
+                <span id="comment-header-name">
+                    Отзывы покупателей
+                    <img height="24px" src="{% static 'news/image/arrow.svg' %}" width="24px"/>
+                </span>
+            </div>
+            <div class="" style="float: right;">
+                <span class="size-table write-comment mybtn-link btn-link-gray" id="write-comment-desktop">
+                    Написать отзыв
+                </span>
+                <span class="write-comment mybtn-link btn-link-gray" id="write-comment-icon">
+                    <img height="48px" src="{% static 'news/image/writecomment.svg' %}" width="48px"/>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12" id="comments-div">
+            <div id="write-comment-form">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Достоинства
+                        </label>
+                        <div class="">
+                            <input autocomplete="off" class="form-control input-xs" id="merits" maxlength="200" type="text">
+                            </input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Недостатки
+                        </label>
+                        <div class="">
+                            <input autocomplete="off" class="form-control input-xs" id="limitations" maxlength="200" type="text">
+                            </input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Комментарий
+                        </label>
+                        <div class="">
+                            <textarea autocomplete="off" id="add-comment-text" maxlength="1000" onkeyup="checkParams();">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            Имя
+                        </label>
+                        <div class="">
+                            <input autocomplete="off" class="form-control input-xs" id="user-name" maxlength="30" onkeyup="checkParams();" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6" id="add-comment">
+                        <button class="comments-submit-btn btn" disabled="" type="button">
+                            <p>
+                                Отправить
+                            </p>
+                        </button>
+                    </div>
+                </form>
+                <div id="comment-process">
+                    Ваш отзыв будет добавлен после проверки модератором
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12" id="show-comments">
+            </div>
+        </div>
+    </div>
+</div>
+<script defer="" type="text/javascript">
+    function checkParams() {
+        var user_name = $("#user-name").val();
+        var comment_text = $("#add-comment-text").val();
+        var merits = $("#merits").val();
+        var limitations = $("#limitations").val();
+        if (user_name.length > 0 && comment_text.length > 0) {
+            $('.comments-submit-btn').removeAttr('disabled');
+        } else {
+            $('.comments-submit-btn').attr('disabled', 'disabled');
+        }
+    }
+</script>
+{% endblock %}

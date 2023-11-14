@@ -1,0 +1,127 @@
+<div class="col-xs-12" id="users">
+    <div class="filter-group row">
+        <div class="form-group col-xs-12 col-sm-12 col-md-4">
+            <input class="search form-control" placeholder="Search" type="text"/>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4">
+            <div class="radio-inline">
+                <label>
+                    <input checked="" class="filter-all" id="gender-all" name="gender" type="radio" value="all"/>
+                    All
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input class="filter" id="gender-female" name="gender" type="radio" value="female"/>
+                    Female
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input class="filter" id="gender-male" name="gender" type="radio" value="male"/>
+                    Male
+                </label>
+            </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12 col-md-4">
+            <div class="radio-inline">
+                <label>
+                    <input class="filter" id="address-all" name="address" type="radio" value="Blvd"/>
+                    Boulevard
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input class="filter" id="address-street" name="address" type="radio" value="St"/>
+                    Street
+                </label>
+            </div>
+            <div class="radio-inline">
+                <label>
+                    <input class="filter" id="address-drive" name="address" type="radio" value="Dr"/>
+                    Drive
+                </label>
+            </div>
+        </div>
+        <div class="form-group col-xs-12 col-sm-12">
+            <button class="btn btn-danger" onclick="resetList();">
+                Clear
+            </button>
+        </div>
+    </div>
+    <ul class="list">
+        <li class="list--list-item" data-gender="male">
+            <h3 class="name">
+                Jonny Wayne
+            </h3>
+            <p class="born">
+                1986
+            </p>
+            <p class="address">
+                13 Oak St.
+            </p>
+        </li>
+        <li class="list--list-item" data-gender="male">
+            <h3 class="name">
+                Jonas
+            </h3>
+            <p class="born">
+                1985
+            </p>
+            <p class="address">
+                3 Main N Ave.
+            </p>
+        </li>
+        <li class="list--list-item" data-gender="male">
+            <h3 class="name">
+                Jonas
+            </h3>
+            <p class="born">
+                1985
+            </p>
+            <p class="address">
+                123 Main St.
+            </p>
+        </li>
+        <li class="list--list-item" data-gender="male">
+            <h3 class="name">
+                Jonas
+            </h3>
+            <p class="born">
+                1985
+            </p>
+            <p class="address">
+                953 Lake Square
+            </p>
+        </li>
+        <li class="list--list-item" data-gender="female">
+            <h3 class="name">
+                Martina
+            </h3>
+            <p class="born">
+                1986
+            </p>
+            <p class="address">
+                1313 Deadend Dr.
+            </p>
+        </li>
+        <li class="list--list-item" data-gender="male">
+            <h3 class="name">
+                Gustaf
+            </h3>
+            <p class="born">
+                1983
+            </p>
+            <p class="address">
+                24 Busch Blvd.
+            </p>
+        </li>
+    </ul>
+    <div class="no-result">
+        No Results
+    </div>
+    <ul class="pagination">
+    </ul>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js">
+</script>

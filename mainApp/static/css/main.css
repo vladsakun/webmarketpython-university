@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Istok+Web:700|Jura|Monoton|Source+Sans+Pro|Oswald|Major+Mono+Display');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+.style_light_primary {
+    background: #eac8f7;
+    color: #240033;
+}
+
+.style_dark_primary {
+    background: #240033;
+    color: #eac8f7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+footer {
+    width: 100%;
+    background-color: #2b2e32;
+}
+
+footer li {
+    list-style-type: none;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer .footer-adress {
+    margin-bottom: 30px;
+}
+
+footer .footer-adress ul {
+    float: right;
+    width: 135px;
+}
+
+footer .footer-adress li {
+    font-size: 15px;
+    color: #fff;
+}
+
+footer .footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0;
+}
+
+footer .footer-social {
+    padding: 20px;
+}
+
+footer .footer-social div {
+    width: 36px;
+    height: 36px;
+}
+
+footer .footer-social li {
+    margin-bottom: 20px;
+}
+
+footer .footer-menu {
+    text-align: center;
+}
+
+footer .footer-menu-item a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+}
+
+#amount-of-orders {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    color: #999999;
+}
+
+#content {
+    min-height: 50vh;
+    margin-bottom: 20px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#content {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex: 0 0 auto;
+}
+
+.logo {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+.rights-text {
+    color: #999999;
+}
+
+.rights {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    background-color: #282a2b;
+    position: bottom;
+    color: #999999;
+}
+
+.search {
+    font-size: 16px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#basket-desktop {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    height: 36px;
+    float: right;
+    padding-top: 10px;
+}
+
+#basket-mobile {
+    display: none;
+}
+
+.phone {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 16px;
+    text-align: left;
+    height: 64px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item-text {
+    font-size: 18px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: 'Open Sans', sans-serif;
+    color: #151515;
+}
+
+.header-mobile {
+    display: none;
+}
+
+.menu-item-active {
+    border: solid;
+}
+
+#close-nav {
+    display: none;
+    float: right;
+}
+
+#menu-item-left {
+    margin-left: 0;
+    margin-right: 30px;
+    text-align: center;
+}
+
+#menu-header {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.menu-item {
+    margin-right: 30px;
+    transition: .70s;
+    color: #151515;
+    height: 48px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline;
+    line-height: 48px;
+}
+
+.menu-item:hover {
+    background-color: #151515;
+}
+
+.menu-item:hover .menu-item-text {
+    color: white;
+}
+
+#site-nav ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 3%;
+    margin-top: 2%;
+}
+
+#site-nav ul a {
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+}
+
+#footer-adress-main {
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    footer .footer-adress ul {
+        float: left;
+    }
+    #menu-item-left {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+    .special {
+        margin: 0;
+    }
+    #basket-desktop {
+        display: none;
+    }
+    #basket-mobile {
+        display: block;
+        width: 48px;
+        align-items: center;
+        float: right;
+        padding: 0;
+    }
+    #basket-mobile img {
+        height: 48px;
+        width: 48px;
+    }
+    .menu-item {
+        display: block;
+        float: left;
+        height: 55px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .footer-menu {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    ul.footer-social-panel li {
+        display: inline;
+        margin-right: 10px;
+    }
+    .navbar-nav {
+        margin: 0!important;
+    }
+    .header-mobile {
+        display: block;
+    }
+    .logo {
+        margin-top: 3em;
+    }
+    #container-mobile {
+        padding-bottom: 0.2em;
+        max-width: 100%;
+        z-index: 48;
+        min-width: 100%;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        transition: width 0.3s linear 0s;
+        border-bottom: none;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 21px 0px;
+    }
+    .header-desktop {
+        display: none;
+    }
+    .menu-item {
+        width: 50%;
+        font-family: 'Jura', sans-serif;
+    }
+    div .phone {
+        display: none;
+    }
+    #menu-header nav ul.active {
+        transform: translateY(0);
+    }
+    #menu-header nav ul {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background: white;
+        text-align: left;
+        transform: translateY(-100%);
+        z-index: 50;
+        transform-origin: top;
+        transition: transform .35s;
+    }
+    #menu-header nav ul li {
+        display: block;
+    }
+    #menu-header nav ul #close-nav {
+        height: 36px;
+        width: 36px;
+        padding: 5px;
+        opacity: 1;
+        display: block;
+    }
+    #menu-header nav ul #close-nav div {
+        width: 36px;
+        height: 36px;
+        float: right;
+        background: url("/static/mainApp/image/cross.svg");
+        background-size: cover;
+        background-position: center;
+    }
+    .title {
+        margin-left: 36px;
+    }
+    #basket {
+        float: right;
+    }
+    #open-nav {
+        width: 48px;
+        height: 48px;
+        float: left;
+        background: url("/static/mainApp/image/menu-black.svg");
+        background-size: cover;
+        background-position: center;
+        vertical-align: middle;
+    }
+}

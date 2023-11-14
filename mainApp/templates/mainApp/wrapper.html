@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>
+        Интернет МАГАЗИН
+    </title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <!-- Latest compiled and minified CSS -->
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+    <!-- Optional theme -->
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" rel="stylesheet">
+    <!-- Latest compiled and minified JavaScript -->
+    <script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    {% load static %}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'js/main.js' %}">
+    </script>
+    <link href="{% static 'mainApp/image/icon.ico' %}" rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="row">
+            <div class="logo col-sm-12 col-xs-12 col-lg-12 col-md-12">
+                <a href="/">
+                    <img border="0" height="84px" src="{% static 'mainApp/image/logo2.png' %}">
+                    </img>
+                </a>
+            </div>
+        </div>
+        <div class="container" id="container-mobile">
+            <div class="row special">
+                <div class="col-xs-3 col-sm-3 header-mobile" id="open-nav">
+                </div>
+                <div class="col-xs-3 col-sm-3" id="basket-mobile">
+                    <a href="/basket/">
+                        <img src="{% static 'mainApp/image/basket.svg' %}">
+                        </img>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="menu-header">
+            <nav id="site-nav">
+                <ul class="navbar-nav">
+                    <li class="close" id="close-nav">
+                        <div>
+                        </div>
+                    </li>
+                    <a href="/TShirts">
+                        <li class="menu-item {% if request.path == '/TShirts' %} {{active_class}} {% endif %}" id="menu-item-left">
+                            <span class="menu-item-text">
+                                    ФУТБОЛКИ
+                                </span>
+                        </li>
+                    </a>
+                    <a href="/Sweatshirts">
+                        <li class="menu-item {% if request.path == '/Sweatshirts' %} {{active_class}} {% endif %}">
+                            <span class="menu-item-text">
+                                    СВИТШОТЫ
+                                </span>
+                        </li>
+                    </a>
+                    <a href="/Bags">
+                        <li class="menu-item {% if request.path == '/Bags' %} {{active_class}} {% endif %}">
+                            <span class="menu-item-text">
+                                    РЮКЗАКИ
+                                </span>
+                        </li>
+                    </a>
+                    <a href="/Shoes">
+                        <li class="menu-item {% if request.path == '/Shoes' %} {{active_class}} {% endif %}">
+                            <span class="menu-item-text">
+                                    ОБУВЬ
+                                </span>
+                        </li>
+                    </a>
+                    <a href="/Hats">
+                        <li class="menu-item {% if request.path == '/Hats' %} {{active_class}} {% endif %}">
+                            <span class="menu-item-text">
+                                    ШАПКИ
+                                </span>
+                        </li>
+                    </a>
+                    <li id="basket-desktop">
+                        <a href="/basket/">
+                            <img height="36px" src="{% static 'mainApp/image/basket.svg' %}" width="36px">
+                            </img>
+                            <span id="amount-of-orders">{{request.COOKIES.amountOfOrders}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="container" id="content">
+        {% block content %} {% endblock %}
+    </div>
+    <footer>
+        <div id="footer-adress-main">
+            <div class="row footer">
+                <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12" id="footer-adress-main">
+                    <div class="footer-adress col-md-12 col-lg-12 col-xs-6 col-sm-6">
+                        <ul>
+                            <li>
+                                <span class="footer-adress-title">
+                                        Время работы:
+                                    </span>
+                            </li>
+                            <li>
+                                Пн-Сб: 9:00 - 18:00
+                            </li>
+                            <li>
+                                Вс: 10:00 - 16:00
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-adress col-md-12 col-lg-12 col-xs-6 col-sm-6">
+                        <ul>
+                            <li>
+                                <span class="footer-adress-title">
+                                        Телефоны
+                                    </span>
+                            </li>
+                            <li>
+                                063-123-123-12
+                            </li>
+                            <li>
+                                099-321-321-12
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-menu col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <ul class="">
+                        <li class="footer-menu-item">
+                            <a href="/">
+                                    Главная страница
+                                </a>
+                        </li>
+                        <li class="footer-menu-item">
+                            <a href="/mainApp/">
+                                    Новости
+                                </a>
+                        </li>
+                        <li class="footer-menu-item">
+                            <a href="/mainApp/contact/">
+                                    Контакты
+                                </a>
+                        </li>
+                        <li class="footer-menu-item">
+                            <a href="/mainApp/delivery/">
+                                    Доставка
+                                </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-social col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <ul class="footer-social-panel">
+                        <li>
+                            <a href="">
+                                <img height="36px" src="/static/mainApp/image/telegram-white-icon.svg" width="36px" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img height="36px" src="/static/mainApp/image/vk-white-icon.svg" width="36px" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img height="36px" src="/static/mainApp/image/facebook-white-icon.svg" width="36px" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img height="36px" src="/static/mainApp/image/instagram-white-icon.svg" width="36px" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="rights">
+            <span class="rights-text">
+                    © Все права защищены 2023
+                </span>
+        </div>
+    </footer>
+</body>
+
+</html>

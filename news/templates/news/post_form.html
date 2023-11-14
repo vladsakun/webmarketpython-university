@@ -1,0 +1,59 @@
+{% load static %}
+<link href="{% static 'css/post_form.css' %}" rel="stylesheet">
+    {% if user.is_authenticated %}
+    <div class="col-sm-6">
+        <form action="" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Заголовок:
+                </label>
+                {{ form.title }}
+            </div>
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Цена:
+                </label>
+                {{ form.price }}
+            </div>
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Описание:
+                </label>
+                {{ form.post }}
+            </div>
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Наличие:
+                </label>
+                {{ form.status }}
+            </div>
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Категория:
+                </label>
+                {{ form.type }}
+            </div>
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Главное фото:
+                </label>
+                {{ form.image }}
+            </div>
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Дополнительное фото(1):
+                </label>
+                {{ form.image2 }}
+            </div>
+            <div class="form-group" id="title">
+                <label for="title" style="display: inline-block;">
+                    Дополнительное фото(2):
+                </label>
+                {{ form.image3 }}
+            </div>
+            <input class="btn btn-default" name="" type="submit" value="Создать продукт"/>
+        </form>
+    </div>
+    {% endif %}
+</link>

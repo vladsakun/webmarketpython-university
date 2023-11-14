@@ -1,0 +1,89 @@
+@import "fonts";
+@import "pagination";
+.post-title {
+    font-family: @font_primary;
+    font-size: 23px;
+}
+.title {
+    a {
+        text-decoration: none;
+        color: #151515/* no underline */
+    }
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+.items {
+    height: auto;
+    transition: 0.5s;
+    display: table-cell;
+    margin-bottom: 4%;
+    .price-in-img {
+        text-align: center;
+        width: 5em;
+        position: absolute;
+        top: 0;
+        padding: 0.3em 0.5em;
+        font-family: sans-serif;
+        font-size: 15px;
+        background-color: #151515;
+        color: #fff;
+    }
+    .status {
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        transform: translateY(-50%);
+        font-family: sans-serif;
+        font-size: 20px;
+        color: #ffaf1a;
+    }
+}
+.fig:hover {
+    background-color: #d9d9d9;
+}
+.fig {
+    width: 100%;
+    height: 50%;
+    border: solid 2px;
+    text-align: center;
+    transition: 0.5s;
+    user-select: none;
+}
+a {
+    text-decoration: none;
+}
+.pagination-phone {
+    display: none;
+}
+.pagination {
+    text-align: center;
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    a {
+        color: #999999;
+    }
+    span {
+        color: #151515;
+    }
+}
+@media (max-width: 768px) {
+    .pagination, .pagination-phone {
+        text-align: center;
+        display: block;
+        ;
+        width: 100%;
+        font-size: 20px;
+        a {
+            color: #999999;
+        }
+        span {
+            color: #151515;
+        }
+    }
+    .pagination-phone {
+        margin-bottom: 10px;
+    }
+}

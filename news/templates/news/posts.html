@@ -1,0 +1,80 @@
+{% extends "mainApp/wrapper.html" %}
+{% block content %}
+{% load static %}
+<link href="{% static 'css/posts.css' %}" rel="stylesheet" type="text/css">
+    <div class="row">
+        {% for post in object_list %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 items" style="position: relative; user-select: none;">
+            <div class="price-in-img">
+                {{post.price}} ₴
+            </div>
+            {% if post.status == "yes" %}
+            <div class="fig">
+                <a href="/{{post.id}}">
+                    <img height="auto" src="{{ post.image.url }}" width="100%"/>
+                </a>
+            </div>
+            {% else %}
+            <span class="status">
+                Нет в наличии
+            </span>
+            <div class="fig" style="background-color:#d9d9d9">
+                <a href="/{{post.id}}">
+                    <img height="auto" src="{{ post.image.url }}" width="100%"/>
+                </a>
+            </div>
+            {% endif %}
+            <div class="title">
+                <a href="/{{post.id}}">
+                    <span class="post-title">
+                        {{post.title}}
+                    </span>
+                </a>
+            </div>
+            {% if post.status == "no" %}
+            <div class="text-warning" style="text-align: center; font-size:15px">
+                Нет в наличии
+            </div>
+            {% else %}
+            <p class="text-success" style="opacity: 0; font-size:15px;">
+                Status
+            </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if object_list.has_previous %}
+        <a href="?page=1">
+            First
+        </a>
+        <a href="?page={{ posts.previous_page_number }}">
+            Previous
+        </a>
+        {% endif %}
+
+    {% for num in object_list.paginator.page_range %}
+
+    {% if object_list.number == num %}
+        <span id="">
+            {{ num }}
+        </span>
+        {% elif num > object_list.number|add:'-10' and num < object_list.number|add:'10' %}
+        <a href="?page={{ num }}">
+            {{ num }}
+        </a>
+        {% endif %}
+
+    {% endfor %}
+
+    {% if object_list.has_next %}
+        <a href="?page={{ object_list.next_page_number }}">
+            >
+        </a>
+        <a href="?page={{ object_list.paginator.num_pages }}">
+            >>
+        </a>
+        {% endif %}
+    </div>
+    {% endblock %}
+</link>

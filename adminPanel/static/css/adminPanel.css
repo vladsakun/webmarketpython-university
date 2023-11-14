@@ -1,0 +1,118 @@
+html {
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+}
+div {
+  letter-spacing: 2px;
+}
+.logo {
+  display: block;
+  text-align: center;
+  user-select: none;
+}
+.left-admin-menu #categories button {
+  padding: 10px 15px;
+}
+.left-admin-menu span {
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 2px;
+}
+.left-admin-menu a {
+  text-decoration: none;
+  color: #151515;
+}
+.left-admin-menu .active {
+  background-image: none !important;
+  background-color: #151515 !important;
+}
+.left-admin-menu .active span {
+  color: #ffffff !important;
+}
+.left-admin-menu button {
+  text-align: left;
+  background: #ffffff;
+  color: #151515;
+  width: 100%;
+  padding: 0;
+  padding-left: 15px;
+}
+.left-admin-menu li {
+  cursor: pointer;
+}
+.left-admin-menu .open {
+  background: #151515;
+}
+.left-admin-menu .open button {
+  background: #151515;
+  color: #fff;
+}
+.left-admin-menu .dropdown-menu .active {
+  background-color: #151515 !important;
+  background-image: none !important;
+}
+.left-admin-menu .dropdown-menu .active a {
+  color: #ffffff !important;
+  background-image: none !important;
+  background-color: #151515 !important;
+}
+.left-admin-menu .dropdown-menu .active a:hover {
+  background-image: none !important;
+  background-color: #151515 !important;
+  color: #ffffff !important;
+}
+#right-admin-func {
+  min-height: 700px;
+  margin-right: 0.5em;
+  float: right;
+  width: 70%;
+}
+#mobile-menu {
+  height: 100px;
+  display: none;
+}
+@media (max-width: 768px) and (orientation: portrait) {
+  #right-admin-func {
+    border: none;
+    margin: 0 !important;
+    width: 100%;
+    padding: 0;
+  }
+  #mobile-menu {
+    height: auto;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #mobile-menu #dropdown-menu {
+    left: -20px;
+  }
+  #mobile-menu ul.list-group-flush {
+    text-align: center;
+    padding: 0;
+    height: auto;
+    width: 100%;
+  }
+  #mobile-menu ul.list-group-flush #add-product {
+    float: left;
+  }
+  #mobile-menu ul.list-group-flush #categories {
+    float: right;
+    width: auto;
+  }
+  #mobile-menu ul.list-group-flush li.menu-inline {
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    border: none;
+    display: inline;
+  }
+  #mobile-menu ul.list-group-flush li.menu-inline button span {
+    font-size: 20px;
+  }
+  #mobile-menu ul.list-group-flush li.menu-inline img {
+    width: 36px;
+    height: 36px;
+  }
+}

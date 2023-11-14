@@ -1,0 +1,68 @@
+{% load static %}
+<link href="{% static 'css/editProducts.css' %}" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+{{error}}
+    {% if user.is_authenticated %}
+<div  style="max-width:300px" id="search">
+    <input aria-label="Search" class="form-control" id="search-input" placeholder="Search" type="text"/>
+        <button class="search-btn" type="button">
+            <i class="fa fa-search search-btn">
+            </i>
+        </button>
+</div>
+<div id="users" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+    <div id="products" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <form method="POST">
+            {% for post in object_list %}
+            <div class="edit-product list col-xs-12 col-sm-3 col-md-3 col-lg-3" data-gender="{{ post.gender }}">
+                <img class="img-edit-product" src="{{post.image.url}}"/>
+                <input class="edit edit-title" value="{{post.title}}"/>
+                <label>
+                    Наличие:
+                </label>
+                <input class="edit edit-status" value="{{post.status}}"/>
+                <label>
+                    Цена:
+                </label>
+                <input class="edit edit-price" value="{{post.price}}"/>
+                <label>
+                    Описание:
+                </label>
+                <input class="edit edit-post" value="{{post.post}}"/>
+                <label>
+                    Пол
+                </label>
+                <input class="edit edit-gender" value="{{post.gender}}"/>
+                <button class="size-table edit-submit-btn" name="edit-submit-btn" product_id="{{post.id}}" type="button" value="edit-submit-btn">
+                    Подтвердить
+                </button>
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+    <div class="pagination-fixed" data-toggle="buttons">
+        <nav class="pagination">
+            <ul class="inline">
+                {% if object_list.has_previous %}
+                <li class="btn page-span" id="first-page">
+                    <<
+                </li>
+                {% endif %}
+
+  {% for num in object_list.paginator.page_range %}
+
+    {% if object_list.number == num %}
+                <li class="btn page-span" id="current-num">
+                    {{ num }}
+                </li>
+                {% elif num > object_list.number|add:'-3' and num < object_list.number|add:'3' %}
+                <li class="btn page-span">
+                    {{ num }}
+                </li>
+                {% endif %}
+  {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endif %}

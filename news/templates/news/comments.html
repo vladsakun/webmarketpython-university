@@ -1,0 +1,67 @@
+<div class="panel-group" id="comment-content1">
+    {% for comment in comments_list %}
+    {% if  comment.status == "no"%}
+    <div class="panel comment panel-default">
+        <div class="panel-heading">
+            <div class="comments-username">
+                {{ comment.user_name| truncatechars:200 }}
+            </div>
+            <div class="comments-date">
+                {{ comment.date|date:'Y-m-d H:i' }}
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="comments-limitations">
+                <span class="comment-title">
+                    Недостатки:
+                </span>
+                {{ comment.limitations| truncatechars:200 }}
+            </div>
+            <div class="comments-merits">
+                <span class="comment-title">
+                    Достоинства:
+                </span>
+                {{ comment.merits| truncatechars:200 }}
+            </div>
+            <div class="comments-text">
+                <span class="comment-title">
+                    Комментарий:
+                </span>
+                <div class="cutted">
+                    {{ comment.comment }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<div class="pagination-fixed" data-toggle="buttons">
+    <nav class="pagination">
+        <ul class="inline">
+            {% if comments_list.has_previous %}
+            <li class="btn page-span" id="first-page">
+                <<
+            </li>
+            {% endif %}
+
+  {% for num in comments_list.paginator.page_range %}
+
+    {% if comments_list.number == num %}
+            <li class="btn" id="current-num">
+                <span>
+                    {{ num }}
+                </span>
+            </li>
+            {% elif num > comments_list.number|add:'-5' and num < comments_list.number|add:'5' %}
+            <li class="btn page-span">
+                <span class="page-span">
+                    {{ num }}
+                </span>
+            </li>
+            {% endif %}
+  {% endfor %}
+        </ul>
+    </nav>
+</div>
+

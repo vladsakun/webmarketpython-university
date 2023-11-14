@@ -1,0 +1,28 @@
+{% extends "mainApp/wrapper.html" %}
+{% load static %}
+{% block content %}
+<!--{% for val in values %}-->
+<!--<p>{{val}}</p>-->
+<!--{% endfor %}-->
+<p>Наш Телефон:
+    <mark>+380 (12) 123-123-123</mark>
+</p>
+<div><h2>Номер телефона</h2><input id="phone" name="phone" type="text" value="{{ current_phone_number }}"/>
+<!-- <script type="text/javascript">
+  function min(a,b)
+  {
+    a = a
+    b = b
+    result = b>a ?true : false
+    return result
+  }
+  var a = prompt("Цифра a")
+  var b = prompt("Цифра b")
+
+  if (min(a,b)){
+  alert("B больше")
+}else{ alert("A больше")}
+
+</script> -->
+<img src="{% static 'mainApp/image/kover.jpg' %}" class="img-thumbnail">
+{% endblock %}

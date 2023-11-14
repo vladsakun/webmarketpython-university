@@ -1,0 +1,216 @@
+<!-- КОРЗИНА -->
+{% extends "mainApp/wrapper.html" %}
+{% block content %}
+{% load static %}
+<link href="{% static 'css/basket.css' %}" rel="stylesheet" type="text/css"/>
+<script defer="" src="{% static 'js/basket.js' %}" type="text/javascript">
+</script>
+<script src="{% static 'basket/jquery_cookie/src/jquery.cookie.js' %}">
+</script>
+<div class="basket">
+    <div id="error" style="text-align: center;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #999999;
+    font-weight: bold;">
+    </div>
+    {% for i in range %}
+    <span class="span-for-hr">
+        <div class="product-in-basket">
+            {% with "size"|addstr:i as size %}
+            {% with "price"|addstr:i as price %}
+            {% with "photo"|addstr:i as photo %}
+            {% with "id"|addstr:i as id %}
+            <div class="col-xs-10 col-sm-3 col-lg-3 col-md-3 basket-img parent-vertical">
+                <a class="image-href" product-id="{{cookies|get_item:id}}">
+                    <img class="vertical-center main-product-photo" height="90px" src="{{ cookies|get_item:photo }}" width="90px"/>
+                </a>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 delete-cross-mobile">
+                <div class="vertical-center trash" cookie="{{i}}">
+                    <div class="trash-head">
+                        <img height="12px" src="/static/basket/image/head-trash.png" width="36px"/>
+                    </div>
+                    <div class="trash-body">
+                        <img height="30px" src="/static/basket/image/body-trash.png" width="30px"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-lg-2 col-md-2 basket-size parent-vertical">
+                <div class="vertical-center">
+                    <select class="size-select form-control" style="width: 5em; padding-left: 0;">
+                        <option class="cookie-size text-primary" selected="">
+                            {{ cookies|get_item:size }}
+                    {% with cookies|get_item:size as current_size %}
+                        </option>
+                        {% for item in sizeList %}
+                    {% if item != current_size %}
+                        <option class="text-secondary">
+                            {{item}}
+                        </option>
+                        {% endif %}
+                {% endfor %}
+                    {% endwith %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-lg-3 col-md-3 basket-count parent-vertical">
+                <div class="vertical-center">
+                    <div class="input-group" id="count">
+                        <span class="input-group-btn">
+                            <button class="dicrement btn btn-dark" type="button">
+                                -
+                            </button>
+                        </span>
+                        <input class="btn-dark form-control counter" readonly="" type="number" value="1"/>
+                        <span class="input-group-btn">
+                            <button class="increment btn btn-dark" type="button">
+                                +
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 basket-price parent-vertical">
+                <div class="vertical-center">
+                    <span class="price">
+                        {{ cookies|get_item:price }} ₴
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2 delete parent-vertical delete-cross-desktop">
+                <div class="vertical-center trash" cookie="{{i}}">
+                    <div class="trash-head">
+                        <img src="/static/basket/image/head-trash.png">
+                        </img>
+                    </div>
+                    <div class="trash-body">
+                        <img src="/static/basket/image/body-trash.png">
+                        </img>
+                    </div>
+                </div>
+            </div>
+            {% endwith %}
+            {% endwith %}
+            {% endwith %}
+            {% endwith %}
+        </div>
+        <hr/>
+    </span>
+    {% endfor %}
+</div>
+<div class="success-order" style="width: 100%; position: relative; height: 300px; margin-bottom:5%">
+    <div class="sa">
+        <div class="sa-success">
+            <div class="sa-success-tip">
+            </div>
+            <div class="sa-success-long">
+            </div>
+            <div class="sa-success-placeholder">
+            </div>
+            <div class="sa-success-fix">
+            </div>
+        </div>
+    </div>
+    <div>
+        <span class="text-success">
+            Ваш заказ успешно отправлен!
+        </span>
+    </div>
+</div>
+<div id="make-order">
+    <div class="second" id="sum">
+    </div>
+    <div class="wrapper" style="height: 80%;">
+        <button class="button" data-target="#user-info-modal" data-toggle="modal" id="make-order-btn" type="button">
+            Оформить заказ
+        </button>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="user-info-modal" tabindex="-1">
+    <div class="modal-dialog modal-lg" style="">
+        <div class="modal-content" style="padding: 2em; background-color:#282a2b; ">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">
+                        Фамилия
+                    </label>
+                    <input aria-describedby="emailHelp" class="form-control" id="user-surname" maxlength="20" onkeyup="checkParams();" placeholder="Фамилия" type="text">
+                    </input>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Имя
+                    </label>
+                    <input aria-describedby="emailHelp" class="form-control" id="user-name" maxlength="20" onkeyup="checkParams();" placeholder="Имя" type="text">
+                    </input>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Телефон
+                    </label>
+                    <input aria-describedby="emailHelp" autocomplete="off" class="form-control" id="user-phone" maxlength="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="checkParams();" placeholder="Телефон" type="number">
+                    </input>
+                    <small class="form-text text-muted">
+                        380931231231
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Отделение "Новой почты"
+                        <img height="24px" src="/static/news/image/Nova_Poshta_logo.svg" style="margin-left: 10px;" width="64px">
+                        </img>
+                    </label>
+                    <input autocomplete="off" class="form-control" id="user-post" maxlength="50" onkeyup="checkParams();" placeholder="Город, номер" type="text"/>
+                    <small class="form-text text-muted">
+                        Город Киев, отделение 78
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label>
+                        E-Mail
+                    </label>
+                    <input class="form-control" id="user-mail" onkeyup="checkParams();" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" placeholder="E-Mail" required="" type="email">
+                        <small class="form-text text-muted" id="emailHelp">
+                            test@email.com
+                        </small>
+                    </input>
+                </div>
+                <button class="btn btn-info" disabled="" id="submit-user-info" type="button">
+                    Подтвердить
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // function validateEmail($email) {
+        //     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        //     if(emailReg.test( $email )){
+        //         console.log("TRUE")
+        //     }else{
+        //         console.log("FALSE")
+        //     }
+        // }
+
+    function checkParams() {
+        var user_name = $("#user-name").val(),
+            user_surname = $("#user-surname").val(),
+            user_phone = $("#user-phone").val(),
+            user_post = $("#user-post").val(),
+            user_mail = $("#user-mail").val(),
+            emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+            if (user_name.length > 2 && user_surname.length > 2 && user_post.length > 5 && user_phone.length > 8 && user_mail.length>8) {
+                if(emailReg.test(user_mail)){
+                    $('#submit-user-info').removeAttr('disabled');
+            } else {
+                $('#submit-user-info').attr('disabled', 'disabled');
+            }
+        } else {
+                $('#submit-user-info').attr('disabled', 'disabled');
+            }
+    }
+</script>
+{% endblock %}

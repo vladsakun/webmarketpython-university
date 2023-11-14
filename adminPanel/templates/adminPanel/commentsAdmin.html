@@ -1,0 +1,35 @@
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" rel="stylesheet"/>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/commentsAdmin.css' %}">
+    {% if user.is_authenticated %}
+    {% for comment in comments_list %}
+<div style="margin-bottom: 20px;" class="comment{{comment.id}} col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <p>
+       <span>Имя:</span> {{comment.user_name}}
+    </p>
+    <p>
+        <span>Комментарий:</span> {{comment.comment}}
+    </p>
+    <p>
+       <span>Достоинства:</span> {{comment.limitations}}
+    </p>
+    <p>
+       <span>Недостатки:</span> {{comment.merits}}
+    </p>
+    <p>
+       <span>Категория:</span> {{comment.category}}
+    </p>
+    <div data-toggle="buttons" id="size-labels">
+        <label style="background:#151515" class="btn submit" comment_id="{{comment.id}}">
+            <i class="fas submit fa-check" comment_id="{{comment.id}}">
+            </i>
+        </label>
+        <label style="background:#151515" class="btn delete" comment_id="{{comment.id}}">
+            <i class="fas delete fa-times" comment_id="{{comment.id}}">
+            </i>
+        </label>
+    </div>
+</div>
+<hr>
+{% endfor %}
+{% endif %}

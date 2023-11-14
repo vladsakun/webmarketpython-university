@@ -1,0 +1,57 @@
+{% extends "mainApp/wrapper.html" %} {% block content %} {% load static %}
+<style>
+    #myVideo {
+        height: auto;
+        width: 435px;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    
+    #main-buy-btn {
+        position: absolute;
+        padding: 10px;
+        left: -136%;
+        width: 200px;
+        top: 70%;
+        color: #212529;
+        background-color: #ffc107;
+        border-color: #ffc107;
+        font-size: 18px;
+        letter-spacing: 2px;
+        transition: 0.5s;
+        animation: left_text_move 2s;
+        animation-fill-mode: forwards;
+        -webkit-animation-delay: 5s;
+        /* Chrome, Safari, Opera */
+        animation-delay: 5s;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    #main-buy-btn:hover {
+        color: #212529;
+        background-color: #e0a800;
+        border-color: #977611;
+    }
+    
+    #main-page-video {
+        position: relative;
+    }
+    
+    @keyframes left_text_move {
+        0% {
+            top: 70%;
+            left: -5%
+        }
+        100% {
+            top: 70%;
+            left: 40%
+        }
+    }
+</style>
+<div id="main-page-video">
+    <video autoplay muted loop id="myVideo">
+      <source src="{% static 'news/image/vladidas.mp4'%}" type="video/mp4">
+      Your browser does not support HTML5 video.
+</video>
+    <a href="/TShirts"> <button type="button" id="main-buy-btn" class="btn btn-outline-warning">Купить сейчас</button> </a>
+</div> {% endblock %}

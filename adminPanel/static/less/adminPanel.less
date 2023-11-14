@@ -1,0 +1,129 @@
+@black: #151515;
+@white: #fff;
+@main_font_family: 'Open Sans', sans-serif;
+html {
+    overflow-x: hidden;
+}
+body{
+        overflow-x: hidden;
+}
+div {
+    letter-spacing: 2px;
+}
+.logo {
+    display: block;
+    text-align: center;
+    user-select: none;
+}
+.left-admin-menu {
+    #categories {
+        button {
+            padding: 10px 15px;
+        }
+    }
+    span {
+        font-family: @main_font_family;
+        letter-spacing: 2px;
+    }
+    a {
+        text-decoration: none;
+        color: @black;
+    }
+    .active {
+        background-image: none !important;
+        background-color: @black !important;
+        span {
+            color: @white !important;
+        }
+    }
+    button {
+        text-align: left;
+        background: @white;
+        color: @black;
+        width: 100%;
+        padding: 0;
+        padding-left: 15px;
+    }
+    li {
+        cursor: pointer;
+    }
+    .open {
+        background: @black;
+        button {
+            background: #151515;
+            color: #fff;
+        }
+    }
+    .dropdown-menu {
+        .active {
+            background-color: #151515 !important;
+            background-image: none !important;
+            a {
+                color: @white !important;
+                background-image: none !important;
+                background-color: @black !important;
+            }
+            a:hover {
+                background-image: none !important;
+                background-color: @black !important;
+                color: @white !important;
+            }
+        }
+    }
+}
+#right-admin-func {
+    min-height: 700px;
+    margin-right: 0.5em;
+    float: right;
+    width: 70%;
+}
+#mobile-menu {
+    height: 100px;
+    display: none;
+}
+@media (max-width: 768px) and (orientation: portrait) {
+    #right-admin-func {
+        border: none;
+        margin: 0 !important;
+        width: 100%;
+        padding:0;
+    }
+    #mobile-menu {
+        height: auto;
+        display: block;
+        width: 100%;
+            margin-bottom: 20px;
+        #dropdown-menu {
+            left: -20px;
+        }
+        ul.list-group-flush {
+            text-align: center;
+            padding: 0;
+            height: auto;
+            width: 100%;
+            #add-product {
+                float: left;
+            }
+            #categories {
+                float: right;
+                width: auto;
+            }
+            li.menu-inline {
+                button {
+                    span {
+                        font-size: 20px;
+                    }
+                }
+                padding: 0;
+                width: 36px;
+                height: 36px;
+                border: none;
+                display: inline;
+                img {
+                    width: 36px;
+                    height: 36px;
+                }
+            }
+        }
+    }
+}

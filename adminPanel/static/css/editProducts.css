@@ -1,0 +1,134 @@
+#current-num {
+  background-color: #888889;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: default;
+}
+.pagination ul {
+  height: 36px;
+  padding: 0;
+}
+.pagination ul li {
+  height: 36px;
+  width: 48px;
+  display: inline;
+  float: left;
+  margin-right: 6px;
+  font-size: 17px;
+  font-weight: bold;
+}
+.pagination-fixed {
+  text-align: center;
+}
+#current-num {
+  background-color: #888889;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: default;
+}
+.edit-product {
+  margin-bottom: 20px;
+  height: auto;
+  padding-left: 0;
+  margin-right: 2px;
+}
+.edit-product label {
+  text-align: center;
+  width: 100%;
+}
+.edit-product a {
+  text-decoration: none;
+}
+.edit-product img {
+  border: solid 2px;
+  border-color: #151515 !important;
+  height: auto;
+  width: 50%;
+}
+.edit-product input {
+  font-family: 'Open Sans', sans-serif;
+  border-color: #151515 !important;
+  margin-top: 3%;
+  font-size: 15px;
+  letter-spacing: 2px;
+  width: 100%;
+  text-align: center;
+}
+.size-table {
+  letter-spacing: 2px;
+  margin-top: 20px;
+  background: #151515;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 35px;
+  font-size: 1.2em;
+  padding: 0 2em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+.size-table:hover {
+  background: #fff;
+  color: #151515;
+}
+.size-table:before,
+.size-table:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #151515;
+  transition: 400ms ease all;
+}
+.size-table:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.size-table:hover:before,
+.size-table:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+#users {
+  padding: 0;
+}
+#users #products {
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+#search {
+  height: 46px;
+  margin-bottom: 2em;
+}
+#search input[type=text] {
+  padding: 10px;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+#search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #151515;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+#search button:hover {
+  background: #888889;
+}
